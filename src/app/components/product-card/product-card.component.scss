@@ -1,0 +1,36 @@
+.product-card{
+    max-width: 20rem;
+}
+.product-image-container > img{
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.product-image-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    position: relative;
+}
+.product-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+.product-category{
+    color: var(--rose-500);
+}
+.product-name{
+    color: var(--rose-900);
+    font-weight: 600;
+}
+.product-price{
+    color: var(--primary-red);
+    font-weight: 500;
+    font-size: 1.2rem;
+}

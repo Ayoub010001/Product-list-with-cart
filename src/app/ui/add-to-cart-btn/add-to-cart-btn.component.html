@@ -1,0 +1,16 @@
+<button class="add-to-cart-btn" *ngIf="!isAddedToCart; else hovered" (click)="addToCart()">
+    <img src="/images/icon-add-to-cart.svg" alt="Add to Cart" class="cart-icon">
+    <span class="cart-text">Add to Cart</span>
+</button>
+
+<ng-template #hovered>
+    <div class="add-to-cart-btn">
+        <button class="decrement-btn" (click)="decrementQuantity()">
+            <img src="/images/icon-decrement-quantity.svg" alt="Add to Cart" class="cart-icon">
+        </button>
+        <span class="cart-text">1</span>
+        <button class="increment-btn" (click)="incrementQuantity()">
+            <img src="/images/icon-increment-quantity.svg" alt="Add to Cart" class="cart-icon">
+        </button>
+    </div>
+</ng-template>

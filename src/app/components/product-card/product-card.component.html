@@ -1,0 +1,13 @@
+<div class="product-card">
+  <div class="product-image-container">
+    <img [src]="dessert.image.desktop" [alt]="dessert.name" />
+    <app-add-to-cart-btn [product]="dessert"></app-add-to-cart-btn>
+  </div>
+  <div class="product-info">
+    <p class="product-category">
+      {{ dessert.category }}
+    </p>
+    <h3 class="product-name">{{ dessert.name }}</h3>
+    <p class="product-price">{{ dessert.price | currency:'USD':'symbol':'1.2-2'}}</p>
+  </div>
+</div>

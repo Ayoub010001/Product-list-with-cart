@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+// Mobile: 375px - Desktop: 1440px
+:root{
+    --primary-red:hsl(14, 86%, 42%);
+    --primary-green: hsl(159, 69%, 38%);
+    --rose-50:hsl(20, 50%, 98%);
+    --rose-100:hsl(13, 31%, 94%);
+    --rose-300:hsl(14, 25%, 72%);
+    --rose-400:hsl(7, 20%, 60%);
+    --rose-500:hsl(12, 20%, 44%);
+    --rose-900:hsl(14, 65%, 9%);
+    --product-name-font-size: 16px;
+}
+
+*{
+  font-family: "Red Hat Text", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.html,
+body{
+  margin: 0;
+  padding: 0;
+  background-color: var(--rose-100);
+  color: var(--rose-900);
+}
+
+.main-title{
+  font-weight: 700;
+}
