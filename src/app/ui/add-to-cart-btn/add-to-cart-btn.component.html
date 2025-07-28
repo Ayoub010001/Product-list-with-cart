@@ -5,11 +5,11 @@
 
 <ng-template #hovered>
     <div class="add-to-cart-btn btn-clicked">
-        <button class="decrement-btn" (click)="decrementQuantity()">
+        <button class="decrement-btn" (click)="decreaseQuantity()">
             <img src="/images/icon-decrement-quantity.svg" alt="Add to Cart" class="cart-icon">
         </button>
-        <span class="cart-text">{{myCartProducts?.quantity}}</span>
-        <button class="increment-btn" (click)="incrementQuantity()">
+        <span class="cart-text">{{ ProductCart.quantity }}</span>
+        <button class="increment-btn" (click)="increaseQuantity()">
             <img src="/images/icon-increment-quantity.svg" alt="Add to Cart" class="cart-icon">
         </button>
     </div>

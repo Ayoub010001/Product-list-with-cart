@@ -1,38 +1,59 @@
 import { Injectable, OnInit } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 import { CartProduct } from "../models/cart-product.model";
 import { Product } from "../models/product.model";
+
 
 @Injectable({
     providedIn: 'root'
 })
-export class CartService implements OnInit {  
-    private myCart!: CartProduct[];
-
-    constructor(){}
-
-    ngOnInit() {
-        this.myCart = [];
+export class CartService{
+    
+    private myCart = new BehaviorSubject<CartProduct[]>([]);
+    
+    get myCart$() {
+        return this.myCart.asObservable();
     }
 
-    addToCart(product:Product): void {
-        this.myCart.push(new CartProduct(product, 1));
+    addToCart(product:Product){
+        const newCartProduct = new CartProduct(product, 1);
+        const currentCart = [...this.myCart.getValue(), newCartProduct];
+        this.myCart.next(currentCart);
     }
-
-    getMyCart():CartProduct[]{
-        return this.myCart;
-    }
-    incrementQuantity(product: Product):void{
-        const productInCart = this.myCart.find(cartProduct => cartProduct.product.name === product.name);
-        if (productInCart) {
-            productInCart.incrementQuantity();
-        }
-    }
-    decrementQuantity(product: Product):void{
-        const productInCart = this.myCart.find(cartProduct => cartProduct.product.name === product.name);
+    
+    incrementQuantity(product:Product){
+        // Find the CartProduct in the cart
+        const currentCart = this.myCart.getValue();
+        const cartProduct = currentCart.find(cp => cp.product.name === product.name);
         
-        if (productInCart && productInCart.quantity > 1) {
-            productInCart.decrementQuantity();
+        if(!cartProduct){
+            return; // If it doesn't exist, do nothing
         }
+        const updatedCart = currentCart.map(cp =>{
+            if(cp.product.name === product.name){
+                cp.incrementQuantity();
+            }
+            return cp;
+        })
+        // If it exists, increment its quantity
+        this.myCart.next(updatedCart);
     }
-
+    
+    decrementQuantity(product: Product) {
+      // Find the CartProduct in the cart
+        const currentCart = this.myCart.getValue();
+        const cartProduct = currentCart.find(cp => cp.product.name === product.name);
+        
+        if(!cartProduct){
+            return; // If it doesn't exist, do nothing
+        }
+        const updatedCart = currentCart.map(cp =>{
+            if(cp.product.name === product.name){
+                cp.decrementQuantity();
+            }
+            return cp;
+        })
+        // If it exists, increment its quantity
+        this.myCart.next(updatedCart);
+    }  
 }

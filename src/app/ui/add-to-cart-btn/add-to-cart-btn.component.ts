@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart-service';
 import { Product } from '../../models/product.model';
 import { CartProduct } from '../../models/cart-product.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-to-cart-btn',
@@ -10,26 +11,35 @@ import { CartProduct } from '../../models/cart-product.model';
   styleUrl: './add-to-cart-btn.component.scss',
 })
 export class AddToCartBtnComponent implements OnInit{
+
   @Input() product!: Product;
+  ProductCart!: CartProduct;
   isAddedToCart!: boolean;
-  myCartProducts!: CartProduct | undefined;
 
   constructor(private cartService: CartService){}
 
   ngOnInit(): void {
     this.isAddedToCart = false;
-    this.myCartProducts = this.cartService.getMyCart().find(element => element.product.name === this.product.name);
   }
 
   addToCart() {
+    this.cartService.addToCart(this.product);
     this.isAddedToCart = true;
-    // Logic to add the product to the cart
+
+    this.cartService.myCart$.subscribe(cartProducts => {
+      const foundProduct = cartProducts?.find(cp => cp.product.name === this.product.name);
+      if (foundProduct) {
+          this.ProductCart = foundProduct;  
+      }
+    });
   }
 
-  incrementQuantity() {
-    this.cartService.incrementQuantity(this.product)
+  increaseQuantity(){
+    this.cartService.incrementQuantity(this.product);
   }
-  decrementQuantity() {
-    this.cartService.decrementQuantity(this.product)
+
+  decreaseQuantity() {
+    this.cartService.decrementQuantity(this.product);
   }
+
 }
