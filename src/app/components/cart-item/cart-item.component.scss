@@ -1,0 +1,24 @@
+.product-info{
+    display: flex;
+    gap: 1rem;
+}
+.product-name{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.product-info-text{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.cart-items-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.quantity{
+    color: var(--primary-red);
+}
+.item-price{
+    color: var(--rose-300);
+}
