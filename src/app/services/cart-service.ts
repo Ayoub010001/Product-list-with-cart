@@ -18,6 +18,9 @@ export class CartService implements OnInit {
         this.myCart.push(new CartProduct(product, 1));
     }
 
+    getMyCart():CartProduct[]{
+        return this.myCart;
+    }
     incrementQuantity(product: Product):void{
         const productInCart = this.myCart.find(cartProduct => cartProduct.product.name === product.name);
         if (productInCart) {

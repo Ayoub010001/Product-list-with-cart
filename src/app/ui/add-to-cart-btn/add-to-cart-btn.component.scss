@@ -16,11 +16,25 @@
     position: absolute;
     bottom: -1.5rem;
     right: 15%;
+    box-sizing: border-box;
 }
 
 .add-to-cart-btn:hover{
     background-color: white;
 }
+
+//Clicked
+.decrement-btn, .increment-btn{
+    background-color: transparent;
+    border: 1px solid var(--rose-50);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn-clicked{
     background-color: var(--primary-red);
     justify-content: space-between;
