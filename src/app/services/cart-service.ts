@@ -22,12 +22,11 @@ export class CartService{
     }
     
     incrementQuantity(product:Product){
-        // Find the CartProduct in the cart
         const currentCart = this.myCart.getValue();
         const cartProduct = currentCart.find(cp => cp.product.name === product.name);
         
         if(!cartProduct){
-            return; // If it doesn't exist, do nothing
+            return;
         }
         const updatedCart = currentCart.map(cp =>{
             if(cp.product.name === product.name){
@@ -35,17 +34,15 @@ export class CartService{
             }
             return cp;
         })
-        // If it exists, increment its quantity
         this.myCart.next(updatedCart);
     }
     
     decrementQuantity(product: Product) {
-      // Find the CartProduct in the cart
         const currentCart = this.myCart.getValue();
         const cartProduct = currentCart.find(cp => cp.product.name === product.name);
         
         if(!cartProduct){
-            return; // If it doesn't exist, do nothing
+            return;
         }
         const updatedCart = currentCart.map(cp =>{
             if(cp.product.name === product.name){
@@ -53,7 +50,6 @@ export class CartService{
             }
             return cp;
         })
-        // If it exists, increment its quantity
         this.myCart.next(updatedCart);
     }  
 
