@@ -1,8 +1,17 @@
-.main-title{
-    margin: 2rem;
+main{
+    max-width: 1440px;
+    margin: auto;
+    padding: 4rem 2rem;
+    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
 }
 
-main{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+app-products-list {
+    grid-column: span 8;
+}
+
+app-products-cart {
+    grid-column: span 4;
 }

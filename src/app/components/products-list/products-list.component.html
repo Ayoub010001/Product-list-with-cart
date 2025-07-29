@@ -1,4 +1,6 @@
-
-<main class="products-list-container">
-    <app-product-card *ngFor="let product of products$ | async" [dessert]="product"></app-product-card>
-</main>
+<section class="products-section">
+    <h1 class="main-title">Desserts</h1>
+    <div class="products-list-container">
+        <app-product-card *ngFor="let product of products$ | async" [dessert]="product"></app-product-card>
+    </div>
+</section>

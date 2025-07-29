@@ -1,5 +1,5 @@
 .cart-title{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-red);
     margin-bottom: 18px;
@@ -9,4 +9,11 @@ aside{
     background-color: var(--rose-50);
     border-radius: 15px;
     padding: 2rem;
+    grid-column: span 4;
+}
+
+.cart-items-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
