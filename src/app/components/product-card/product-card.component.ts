@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products-service';
 import { Product } from '../../models/product.model';
+import { CartService } from '../../services/cart-service';
 
 @Component({
   selector: 'app-product-card',
@@ -10,9 +11,14 @@ import { Product } from '../../models/product.model';
 })
 export class ProductCardComponent implements OnInit {
   @Input() dessert!: Product;
-  constructor(private productService: ProductsService) { }
+  isAddedToCart!: boolean;
+  constructor(private productService: ProductsService,
+    private cartService: CartService
+  ) { }
 
-  ngOnInit() {
-    console.log(this.dessert);
+  ngOnInit(): void {
+    this.cartService.isAddedToCart$(this.dessert.name).subscribe(isAdded => {
+      this.isAddedToCart = isAdded;
+    });
   }
 }

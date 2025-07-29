@@ -1,5 +1,5 @@
 .cart-title{
-    font-size: 1.5rem;
+    font-size: 20px;
     font-weight: 700;
     color: var(--primary-red);
     margin-bottom: 18px;
@@ -16,4 +16,43 @@ aside{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin: 20px 0;
+}
+
+hr{
+    width: 80%;
+    margin: auto;
+    border-top: 1px solid var(--rose-300);
+}
+
+.total-order-container{
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-order-label{
+    font-size: 16px;
+    color: var(--rose-900);
+}
+
+.total-order-price{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.confirm-btn{
+    background-color: var(--primary-red);
+    color: var(--rose-50);
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    margin: 20px 0 0;
 }

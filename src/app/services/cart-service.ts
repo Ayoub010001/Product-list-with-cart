@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, map, Observable } from "rxjs";
 import { CartProduct } from "../models/cart-product.model";
 import { Product } from "../models/product.model";
 
@@ -56,4 +56,16 @@ export class CartService{
         // If it exists, increment its quantity
         this.myCart.next(updatedCart);
     }  
+
+    removeFromCart(name:string){
+        const currentCart = this.myCart.getValue();
+        const updatedCart = currentCart.filter(cp => cp.product.name !== name);
+        this.myCart.next(updatedCart);
+    }
+
+    isAddedToCart$(name: string): Observable<boolean> {
+        return this.myCart$.pipe(
+          map(cartProducts => cartProducts.some(cp => cp.product.name === name))
+        );
+    }
 }

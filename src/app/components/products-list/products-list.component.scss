@@ -1,8 +1,8 @@
 .products-list-container{
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 20rem));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, 254px);
+    gap: 2rem;
 }
 
 .main-title{
@@ -12,4 +12,8 @@
 
 .products-section{
     grid-column: span 8;
+}
+
+app-products-cart{
+    width: 250px;
 }

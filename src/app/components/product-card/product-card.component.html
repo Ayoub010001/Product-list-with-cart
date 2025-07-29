@@ -1,5 +1,5 @@
 <div class="product-card">
-  <div class="product-image-container">
+  <div class="product-image-container" [ngClass]="{ 'border-primary': isAddedToCart}">
     <img [src]="dessert.image.desktop" [alt]="dessert.name" />
     <app-add-to-cart-btn [product]="dessert"></app-add-to-cart-btn>
   </div>

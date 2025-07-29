@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CartProduct } from '../../models/cart-product.model';
+import { CartService } from '../../services/cart-service';
 
 @Component({
   selector: 'app-cart-item',
@@ -7,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './cart-item.component.scss'
 })
 export class CartItemComponent {
+  @Input() item!: CartProduct;
 
+  constructor(private cartService:CartService) { }
+
+  removeFromCart(name: string) {
+    this.cartService.removeFromCart(name);
+  }
 }

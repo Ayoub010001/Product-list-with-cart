@@ -4,11 +4,11 @@
 }
 .product-name{
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .product-info-text{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -31,15 +31,19 @@
 .item-price{
     color: var(--rose-300);
 }
-.remove-icon{
+.remove-btn{
     background-color: transparent;
-    border: 1px solid var(--rose-400);
+    border: 1.5px solid var(--rose-400);
     border-radius: 50%;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     display: flex;
-    padding: 0.2rem;
+    padding: 10px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.remove-btn:hover{
+    background-color: var(--primary-red);
 }

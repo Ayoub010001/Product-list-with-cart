@@ -13,13 +13,16 @@ import { Observable } from 'rxjs';
 export class AddToCartBtnComponent implements OnInit{
 
   @Input() product!: Product;
+  //@Input() isAddedToCart!: boolean;
   ProductCart!: CartProduct;
-  isAddedToCart!: boolean;
+ isAddedToCart!: boolean;
 
   constructor(private cartService: CartService){}
 
   ngOnInit(): void {
-    this.isAddedToCart = false;
+    this.cartService.isAddedToCart$(this.product.name).subscribe(isAdded => {
+      this.isAddedToCart = isAdded;
+    });
   }
 
   addToCart() {

@@ -1,13 +1,13 @@
-<div class="cart-items-wrapper">
+<div class="cart-items-wrapper" *ngIf="item">
     <div class="cart-items">
-        <h3 class="product-name">Classic Tiramisu</h3>
+        <h3 class="product-name">{{item.product.name}}</h3>
         <div class="product-info">
-            <p class="product-info-text quantity">1x</p>
-            <p class="product-info-text item-price">5.00$</p>
-            <p class="product-info-text total-price">5.00$</p>
+            <p class="product-info-text quantity">{{item.quantity}}x</p>
+            <p class="product-info-text item-price">{{item.product.price|currency:"USD":"symbol":"1.2-2"}}</p>
+            <p class="product-info-text total-price">{{item.totalPrice|currency:"USD":"symbol":"1.2-2"}}</p>
         </div>
     </div>
-    <div>
-        <img src="/images/icon-remove-item.svg" alt="remove-icon" class="remove-icon">
-    </div>
+    <button class="remove-btn" (click)="removeFromCart(item.product.name)">
+        <img src="/images/icon-remove-item.svg" alt="remove-icon">
+    </button>
 </div>
