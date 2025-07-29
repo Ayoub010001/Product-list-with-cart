@@ -51,7 +51,7 @@ export class CartService{
             return cp;
         })
         this.myCart.next(updatedCart);
-    }  
+    }
 
     removeFromCart(name:string){
         const currentCart = this.myCart.getValue();
