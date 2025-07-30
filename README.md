@@ -1,59 +1,68 @@
-# ProductListWithCart
+# 🛍️ Product List with Cart – Frontend Mentor Challenge
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+A responsive e-commerce product listing page built with **Angular**, using **RxJS Observables** for state management and **JSON Server** as a mock backend. Users can browse products, add them to a cart, and manage cart quantities in real-time.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tech Stack
 
-```bash
-ng serve
-```
+- **Angular** for component-based architecture
+- **RxJS** for reactive state management
+- **SCSS** for styling
+- **TypeScript** for type safety
+- **JSON Server** as a fake RESTful API
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 📸 Demo
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+![Alt text](/public/preview/Screencapture.png)
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📦 Features
 
-```bash
-ng generate --help
-```
+- ✅ Fetch product list from a fake API (`json-server`)
+- ✅ Display products with name, price, image
+- ✅ Add and remove products from cart
+- ✅ Increase/decrease product quantity
+- ✅ Calculate and display total price
+- ✅ Reactive UI updates with `BehaviorSubject` and `Observables`
+- ✅ Mobile-first responsive layout
 
-## Building
+---
 
-To build the project run:
+## 🧱 Project Structure
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+├── app
+|  ├── app-routing.module.ts
+|  ├── app.component.html
+|  ├── app.component.scss
+|  ├── app.component.spec.ts
+|  ├── app.component.ts
+|  ├── app.module.ts
+|  ├── components
+|  |  ├── cart-item
+|  |  ├── product-card
+|  |  ├── products-cart
+|  |  └── products-list
+|  ├── env
+|  |  └── env.ts
+|  ├── models
+|  |  ├── cart-product.model.ts
+|  |  └── product.model.ts
+|  ├── services
+|  |  ├── cart-service.ts
+|  |  └── products-service.ts
+|  └── ui
+|     └── add-to-cart-btn
+├── assets
+|  └── fonts
+|     ├── OFL.txt
+|     ├── README.txt
+|     ├── RedHatText-Italic-VariableFont_wght.ttf
+|     ├── RedHatText-VariableFont_wght.ttf
+|     └── static
+├── index.html
+├── main.ts
+└── styles.scss
